@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <h:form>
+        <p:menu>
+            <p:menuitem value="Page Management" action="#{pc.setFirstPage('page/PageDetails')}" update=":contentPanel"/>
+            <p:submenu label="Menu Management" >
+                <p:menuitem value="Menu" action="#{pc.setFirstPage('menu/MenuDetails')}" update=":contentPanel"/>
+                <p:menuitem value="Menu Item" action="#{pc.setFirstPage('menuItem/MenuItemDetails')}" update=":contentPanel"/>
+                <p:menuitem value="Link" action="#{pc.setFirstPage('link/LinkDetails')}" update=":contentPanel"/>
+                
+            </p:submenu>
+            <p:submenu label="Product Management" >
+                <p:menuitem value="Product Category" action="#{pc.setFirstPage('productCategory/ProductCategoryDetails')}" update=":contentPanel"/>
+                <p:menuitem value="Product" action="#{pc.setFirstPage('product/ProductDetails')}" update=":contentPanel"/>
+            </p:submenu>
+            
+        </p:menu>
+    </h:form>
+</ui>
+

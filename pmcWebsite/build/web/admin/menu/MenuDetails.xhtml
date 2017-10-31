@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <p:panel>
+        <p:commandButton value="Add Menu" action="#{mc.toggleVisibility()}" update="menu_entry_panel" />
+        <p:panel id="menu_entry_panel" visible="#{mc.visible}" >
+            <ui:include src="AddMenu.xhtml" />
+        </p:panel>
+    </p:panel>
+    <p:panel id="menu_data_panel">
+         <p:growl id="msgs" showDetail="true" globalOnly="true"/>
+        <p:dataTable class="menudatatable" var="menu" value="#{mc.menuList}" draggableRows="true" rowHover="true">
+            <p:ajax event="rowReorder" listener="#{mc.onRowReorder}" update=":menu_data_panel" />
+            <p:column headerText="Menu ID" >
+                <h:outputText value="#{menu.menuId}" />
+            </p:column>
+            <p:column headerText="Menu Name">
+                <h:outputText value="#{menu.menuName}" />
+            </p:column>
+            <p:column headerText="Page ID">
+                <h:outputText value="#{menu.pageId}" />
+            </p:column>
+               
+            <p:column headerText="Diplay Order" sortBy="#{menu.displayOrder}">
+                <h:outputText value="#{menu.displayOrder}" />
+            </p:column>
+
+            <p:column headerText="Options">
+                <p:panelGrid columns="2">
+                    <p:commandLink value="Edit" action="#{mc.edit(menu.menuId)}" update=":menu_entry_panel" />
+                    <p:commandLink value="Delete" action="#{mc.delete(menu.menuId)}" update=":menu_entry_panel, :menu_data_panel" />
+                </p:panelGrid>
+            </p:column>
+        </p:dataTable>
+    </p:panel>
+</ui>
+

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <script src="http://maps.google.com/maps/api/js?sensor=false&amp;key=AIzaSyAk0UbH5X3aMoXm1XQXpcuc1xSVir0zGXE" type="text/javascript" ></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+    </h:head>
+
+    <h:body>
+ 
+
+        <!--            <%= link_to 'Use', model, class: "btn btn-primary", :"data-no-turbolink" => true %>-->
+
+        <div class="ui-grid">
+            <div class="ui-g-2"></div>
+            <div class="ui-g-8">
+                <center> 
+                    <p:panel id="slidePanel" visible="#{fec.slidePanelVisibility}" >
+                        <p:imageSwitch effect="fade" id="fadeEffect" speed="3000" style="position: relative; width: 824px; height: 420px;">
+                            <ui:repeat value="#{slideController.images}" var="image" id="fadeEffectImages"  >
+                                <p:graphicImage name="images/assets/slideshow/#{image}" id="image"  class="slideshow" />
+                            </ui:repeat>
+                        </p:imageSwitch>
+                    </p:panel>
+                    
+                    <p:panel id="content" style="width: 800px;">
+                        <p:outputLabel value="#{fec.currentContent}" escape="false" styleClass="currentContent"/>
+                    </p:panel>  
+                    
+                    <p:panel id="mapPanel" visible="#{fec.mapPanelVisibility}" >
+                        <f:view contentType="text/html" >
+                            <h2> Find Us Here </h2>
+                            <center>
+                                <p:gmap center="27.663060, 85.325117" zoom="17" type="HYBRID" style="width:90% ;height:400px; " model="#{markersView.simpleModel}" /> 
+                            </center>
+                        </f:view>
+                    </p:panel>
+                    
+                    <p:panel id="feedbackPanel" visible="#{fec.feedbackPanelVisibility}" header="Drop us a line"  style="width: 520px;">
+                        <f:view >
+                            <h:form prependId="false" >
+                                <p:panelGrid columns="2">
+                                    <p:outputLabel value="Name"/>
+                                    <p:inputText id="feedbackName" value=""/>
+
+                                    <p:outputLabel value="Email" />
+                                    <p:inputText id="feedbackEmail" value="" />
+
+                                    <p:outputLabel value="Message" />
+                                    <p:inputTextarea id="feedbackMessage" value="" cols="20" rows="5" maxlength="200" autoResize="false" /> 
+
+                                    <p:messages showDetail="true"/>
+                                    <p:captcha label="Captcha" />
+                                    <div class="g-recaptcha" data-sitekey="6LfcgCUTAAAAAMqCUakLf0d3jvavMxKEw-l_5Bj2">
+                                        <p:commandButton value="Check" actionListener="#{captchaView.submit()}" ajax="false" icon="ui-icon-check"/>
+                                    </div>
+                                    <p:commandButton value="Submit" action="#" update=""/>
+                                </p:panelGrid>
+                            </h:form>
+                        </f:view>
+                    </p:panel>
+                </center>
+                <p:panel id="commentPanel" visible="#{fec.commentPanelVisibility}">
+                    <center> <div class="fb-comments" data-href="http://localhost:8080/purnametal/" data-numposts="5" data-width="800"></div></center>
+                </p:panel>
+            </div>
+            
+           
+        </div>
+    </h:body>
+</ui>
+

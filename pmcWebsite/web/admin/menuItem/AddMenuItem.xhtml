@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <h:form>
+        <p:panelGrid columns="2">
+            <p:outputLabel value="Menu Item Name" />
+            <p:inputText id="menuItemName" value="#{mic.currentMenuItem.menuItemName}" />
+            <p:outputLabel value="Page ID" />
+            <p:selectOneMenu id="pageId" value="#{mic.currentMenuItem.pageId}" >
+                <f:selectItem itemLabel="Null" itemValue="null" />
+                <f:selectItems value="#{mic.pageList}" var="page"
+                               itemLabel="#{page.pageId} - #{page.pageName}" itemValue="#{page.pageId}" />
+            </p:selectOneMenu>
+            <p:outputLabel value=""/>
+            <p:panelGrid columns="3">
+                <p:commandButton value="Save" action="#{mic.save()}" update="menuItem_entry_panel, menuItem_data_panel" />
+                <p:commandButton value="Edit" action="#{mic.currentMenuItemEdit()}" update="menuItem_entry_panel, menuItem_data_panel" />
+                <p:commandButton value="Reset" process="@this" actionListener="#{mic.reset()}" update="menuItem_entry_panel" />
+            </p:panelGrid>
+        </p:panelGrid>
+    </h:form>
+</ui>
+

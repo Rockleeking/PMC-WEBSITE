@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <p:panel>
+        <p:commandButton value="Add Link" action="#{lc.toggleVisibility()}" update="link_entry_panel" />
+        <p:panel id="link_entry_panel" visible="#{lc.visible}">
+            <ui:include src="AddLink.xhtml" />
+        </p:panel>
+    </p:panel>
+    <p:panel id="link_data_panel">
+        <p:dataTable var="link" value="#{lc.linkList}">
+            <p:column headerText="Link ID">
+                <h:outputText value="#{link.linkId}" />
+            </p:column>
+            <p:column headerText="Menu ID">
+                <h:outputText value="#{link.menuId}" />
+            </p:column>
+            <p:column headerText="Menu Item ID">
+                <h:outputText value="#{link.menuItemId}" />
+            </p:column>
+            <p:column headerText="Options">
+                <p:panelGrid columns="2">
+                    <p:commandLink value="Edit" action="#{lc.edit(link.linkId)}" update=":link_entry_panel"/>
+                    <p:commandLink  value="Delete" action="#{lc.delete(link.linkId)}" update=":link_entry_panel, :link_data_panel"/>
+                </p:panelGrid>
+            </p:column>
+        </p:dataTable>
+    </p:panel>
+    
+</ui>
+

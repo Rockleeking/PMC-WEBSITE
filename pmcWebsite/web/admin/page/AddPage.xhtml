@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+
+    <h:form>
+        <p:panelGrid columns="2">
+            <p:outputLabel value="Page Name" />
+            <p:inputText id="pageName" value="#{pc.currentPage.pageName}"/>
+            <p:outputLabel value="Content" />
+            <p:editor id="pageContent" value="#{pc.currentPage.pageContent}" />
+            <p:outputLabel value="Page Slug" />
+            <p:inputText id="pageSlug" value="#{pc.currentPage.pageSlug}" />
+            <p:outputLabel value=""/>
+            <p:panelGrid columns="3">
+                <p:commandButton value="Save" action="#{pc.save()}" update="page_entry_panel, page_data_panel" />
+                <p:commandButton value="Edit" action="#{pc.editCurrentPage()}" update="page_entry_panel, page_data_panel" />
+                <p:commandButton value="Reset" actionListener="#{pc.reset()}" update="page_entry_panel" process="@this" />
+            </p:panelGrid>  
+        </p:panelGrid>
+    </h:form>
+</ui>
+

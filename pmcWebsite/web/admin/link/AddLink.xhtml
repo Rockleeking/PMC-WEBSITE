@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <h:form>
+        <p:panelGrid columns="2">
+            <p:outputLabel value="Menu ID" />
+            <p:selectOneMenu id="menuId" value="#{lc.currentLink.menuId}">
+                <f:selectItem itemLabel="Null" itemValue="null" />
+                <f:selectItems value="#{lc.menuList}" var="menu"
+                               itemLabel="#{menu.menuId} - #{menu.menuName}" itemValue="#{menu.menuId}" />
+            </p:selectOneMenu>
+            <p:outputLabel value="Menu Item ID" />
+            <p:selectOneMenu id="menuItemId" value="#{lc.currentLink.menuItemId}">
+                <f:selectItem itemLabel="Null" itemValue="null" />
+                <f:selectItems value="#{lc.menuItemList}" var="menuItem"
+                               itemLabel="#{menuItem.menuItemId} - #{menuItem.menuItemName}" itemValue="#{menuItem.menuItemId}" />
+            </p:selectOneMenu>
+            <p:outputLabel value=""/>
+            <p:panelGrid columns="3">
+                <p:commandButton value="Save" action="#{lc.save()}" update="link_entry_panel, link_data_panel" />
+                <p:commandButton value="Edit" action="#{lc.currentEditLink()}" update="link_entry_panel, link_data_panel" />
+                <p:commandButton value="Reset" process="@this" actionListener="#{lc.reset()}" update="link_entry_panel" />
+            </p:panelGrid>
+        </p:panelGrid>
+    </h:form>
+</ui>
+

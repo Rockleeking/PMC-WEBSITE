@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <p:panel>
+        <p:commandButton value="Add Menu Item" action="#{mic.toggleVisibility()}" update="menuItem_entry_panel" />
+        <p:panel id="menuItem_entry_panel" visible="#{mic.visible}">
+            <ui:include src="AddMenuItem.xhtml" />
+        </p:panel>
+    </p:panel>
+    <p:panel id="menuItem_data_panel" >
+        <p:dataTable var="menuItem" value="#{mic.menuItemList}">
+            <p:column headerText="Menu Item ID" >
+                <h:outputText value="#{menuItem.menuItemId}" />
+            </p:column>
+            <p:column headerText="Menu Item Name" >
+                <h:outputText value="#{menuItem.menuItemName}" />
+            </p:column>
+            <p:column headerText="Page ID" >
+                <h:outputText value="#{menuItem.pageId}" />
+            </p:column>
+            <p:column headerText="Options" >
+                <p:panelGrid columns="2">
+                    <p:commandLink value="Edit" action="#{mic.edit(menuItem.menuItemId)}" update=":menuItem_entry_panel" />
+                    <p:commandLink value="Delete" action="#{mic.delete(menuItem.menuItemId)}" update=":menuItem_data_panel" />
+                </p:panelGrid>
+            </p:column>
+        </p:dataTable>
+    </p:panel>
+</ui>
+

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <h:form>
+        <p:panelGrid columns="2">
+            <p:outputLabel value="Menu Name"/>
+            <p:inputText id="menuName" value="#{mc.currentMenu.menuName}" />
+            <p:outputLabel value="Page ID" />
+            <p:selectOneMenu id="pageId" value="#{mc.currentMenu.pageId}" >
+                <f:selectItem itemLabel="Null" itemValue="0" />
+                <f:selectItems value="#{mc.pageList}" var="page" 
+                               itemLabel="#{page.pageId} - #{page.pageName}" itemValue="#{page.pageId}"/>
+            </p:selectOneMenu>
+            <p:outputLabel value="" />
+            <p:panelGrid columns="3">
+                <p:commandButton value="Save" action="#{mc.save()}" update="menu_entry_panel, menu_data_panel"/>
+                <p:commandButton value="Edit" action="#{mc.editCurrentMenu()}" update="menu_entry_panel, menu_data_panel" />
+                <p:commandButton value="Reset" actionListener="#{mc.reset()}" process="@this" update="menu_entry_panel" />
+            </p:panelGrid>
+        </p:panelGrid>
+    </h:form>
+</ui>
+

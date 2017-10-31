@@ -1,0 +1,108 @@
+.ui-layout-north{
+    z-index: 1000 !important;
+    overflow: visible !important;
+    border: 0px;
+}
+
+.ui-layout-north .ui-layout-unit-content{
+    overflow: visible !important;
+    border: 0px;
+}
+
+.ui-panel {
+    padding: 0px !important;
+    border: 0px;
+}
+
+.ui-panel .ui-panel-content {
+    border: 0;
+    background: 0;
+    padding: 0em 0em;
+}
+
+.ui-widget-content {
+    background: #fff;
+    border: 0px;
+
+}
+.ui-widget .ui-widget {
+    font-size: 0.9em !important; 
+    border: 0px;
+}
+.ui-widget {
+    font-family: Arial,sans-serif;
+    border: 0px;
+}
+element {
+    visibility: visible;
+}
+
+
+.ui-menu .ui-menuitem-link {
+    color: #000000;
+    font-size: 0.9em;
+}
+
+.ui-menu-child{
+    background: #282828 !important;
+}
+
+ul li ul li .ui-menuitem-link{
+    margin-left: 5px !important;
+}
+.centeredMenuBar.ui-menubar {
+    text-align: center;
+}
+
+.centeredMenuBar .ui-menu-list {
+    display: inline-block;
+}
+
+/*.ui-widget-header {
+    background: #4d79ff -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0))!important;
+    color: #ffffff !important;
+}*/
+
+/*.ui-menu .ui-widget-header h3{
+    font-size: 0.97em;
+}*/
+
+.ui-menu, .ui-menu .ui-menu-child {
+    background: #b3c6ff -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0)) !important;
+}
+
+/* .ui-state-default{
+    background: #4d79ff -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0)) !important;
+    color: #ffffff !important;
+    text-shadow: 0 0px 0 rgba(255,255,255,0.7) !important;
+}*/
+
+.ui-state-default, .ui-widget-content .ui-state-defaul{
+    background: #4d79ff -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0)) !important;
+color: #ffffff !important;
+text-shadow: 0 0 0 rgba(255,255,255,0.7) !important;
+}
+
+.ui-inputfield{
+    background-color: #ffffff !important;
+    color: #000 !important;
+}
+
+.ui-panel .ui-panel-content {
+/*    border: 0;*/
+    background: 0;
+    padding: .5em 1em;
+}
+#logo{
+    width: fit-content;
+    float: left;
+}
+
+#logout{
+    width: fit-content;
+    float: right;
+}
+
+#page_entry_panel_content{
+    border: 0px;
+}

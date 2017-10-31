@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="ContentPage.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="FbIntegrationPage.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="admin/menuItem/AddMenuItem.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="admin/AdminTemplate.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="HeaderPage.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="FooterPage.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="admin/productCategory/AddProductCategory.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="admin/product/AddProduct.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="admin/product/ProductDetails.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="admin/client/ClientsDetails.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="admin/link/AddLink.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="admin/product/ProductDisplay.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="admin/client/AddClients.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="admin/page/AddPage.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="admin/page/PageDetails.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="admin/link/LinkDetails.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="index.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="admin/AdminMenuBar.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="admin/menu/AddMenu.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="admin/menuItem/MenuItemDetails.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="admin/menu/MenuDetails.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="admin/AdminHeader.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="Template.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="admin/AdminHomePage.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="Test.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="admin/productCategory/ProductCategoryDetails.xhtml" x="650" y="600" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="productGrid">
+            <p:dataGrid var="products" value="" columns="" layout="grid"
+                rows="4" id="products">
+                <f:facet name="header">
+                    Products
+                </f:facet>
+                
+                <p:panel style="text-align: center;">
+                    <h:panelGrid columns="1" style="width: 100%">
+                        <p:graphicImage name="" />
+                        <h:outputText value="" />
+                        
+                        <p:commandLink update="" oncomplete="" title="View Detail">
+                            <h:outputText styleClass="ui-icon ui-icon-search" style="margin: 0 auto;" />
+                            <f:setPropertyActionListener value="" target="" />
+                        </p:commandLink>
+                    </h:panelGrid>
+                </p:panel>
+            </p:dataGrid> 
+            
+            <p:dialog header="Product Info" widgetVar="" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:outputPanel id="productDetail" style="text-align: center; ">
+                    <p:panelGrid columns="2" rendered="" columnClasses="">
+                        <f:facet name="header">
+                            <p:graphicImage name=""/>
+                        </f:facet>
+                        
+                        <h:outputText value="Product:" />
+                        <h:outputText value="" />
+                        
+                        <h:outputText value="Description" />
+                        <h:outputText value="" />
+                        
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>
+

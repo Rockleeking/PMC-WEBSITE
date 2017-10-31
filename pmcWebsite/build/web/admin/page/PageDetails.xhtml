@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <p:panel>
+        <p:commandButton value="Add Page" action="#{pc.toggleVisibility()}" update="page_entry_panel" />
+        <p:panel id="page_entry_panel" visible="#{pc.visible}">
+            <ui:include src="AddPage.xhtml" />
+        </p:panel>
+
+        <p:panel id="page_data_panel">
+            <p:dataTable var="page" value="#{pc.pageList}">
+                <p:column headerText="Page ID">
+                    <h:outputText value="#{page.pageId}" />
+                </p:column>
+
+                <p:column headerText="Page Name">
+                    <h:outputText value="#{page.pageName}" />
+                </p:column>
+
+                <p:column headerText="Page Content">
+                    <h:outputText value="#{page.pageContent}" escape="false"/>
+                </p:column>
+
+                <p:column headerText="Page Slug">
+                    <h:outputText value="#{page.pageSlug}" />
+                </p:column>
+
+                <p:column headerText="Options">
+                    <p:panelGrid columns="2">
+                        <p:commandLink value="Edit" action="#{pc.edit(page.pageId)}" update=":page_entry_panel"/>
+                        <p:commandLink value="Delete" action="#{pc.delete(page.pageId)}" update=":page_data_panel" />
+                    </p:panelGrid>
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+    </p:panel>
+</ui>
+

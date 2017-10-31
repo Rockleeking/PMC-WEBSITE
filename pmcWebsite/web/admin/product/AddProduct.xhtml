@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <h:form>
+        <p:panelGrid columns="2">
+            <p:outputLabel value="Product Name" />
+            <p:inputText id="productName" value="#{prc.currentProduct.productName}" />
+            <p:outputLabel value="Category" />
+            <p:selectOneMenu id="productCategory" value="#{prc.currentProduct.productCategoryId}" >
+                <f:selectItem itemLabel="Null" itemValue="0" />
+                <f:selectItems value="#{prc.productCategoryList}" var="category" 
+                               itemLabel="#{category.productCategoryId} - #{category.productCategory}" itemValue="#{category.productCategoryId}"/> 
+                
+            </p:selectOneMenu>
+            <h:outputLabel for="fileIdResume" value="Upload Your Resume:" />
+ 
+<!--            <p:fileUpload id="fileIdResume"  value="#{fileUploadBean.resume}" mode="simple" skinSimple="true" description="Resume"/>
+            <p:outputLabel value="" />-->
+            <p:panelGrid columns="3">
+                <p:commandButton value="Save" action="#{prc.save()}" update="product_entry_panel, product_data_panel"/>
+                <p:commandButton value="Edit" action="#{prc.editCurrentProduct()}" update="product_entry_panel, product_data_panel" />
+                <p:commandButton value="Reset" actionListener="#{prc.reset()}" process="@this" update="product_entry_panel" />
+            </p:panelGrid>
+        </p:panelGrid>
+    </h:form>
+</ui>

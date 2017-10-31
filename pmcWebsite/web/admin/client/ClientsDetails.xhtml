@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Client Details</title>
+    </h:head>
+    <h:body>
+        <p:panel>
+            <p:commandButton value="Add Client" action="#{clientsController.toggleVisibility()}" update="client_entry_panel" />
+            <p:panel id="client_entry_panel" visible="#{clientsController.visible}">
+                <ui:include src="AddClient.xhtml" />
+            </p:panel>
+        </p:panel>
+        <p:panel id="client_data_panel" >
+            <p:dataTable class="clientdatatable" var="client" value="#{clientsController.clientsList}" rowHover="true">
+                <p:column headerText="Client ID" >
+                    <h:outputText value="#{client.clientId}" />
+            </p:column>
+            <p:column headerText="Name" >
+                <h:outputText value="#{client.clientName}" />
+            </p:column>
+            <p:column headerText="Logo" >
+                <p:graphicImage value="" height="30" width="30" />
+            </p:column>
+            <p:column headerText="Options">
+                <p:panelGrid columns="2">
+                    <p:commandLink value="Edit" action="#{clientsController.edit(client.clientId)}" update=":client_entry_panel" />
+                    <p:commandLink value="Delete" action="#{clientsController.delete(client.clientId)}"  update=":client_entry_panel, :client_data_panel" />
+                </p:panelGrid>
+            </p:column>
+            </p:dataTable>
+            
+        </p:panel>
+    </h:body>
+</ui>
+
